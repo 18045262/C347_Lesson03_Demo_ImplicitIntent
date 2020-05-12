@@ -23,22 +23,12 @@ public class MainActivity extends AppCompatActivity {
         btnEmail.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View arg0) {
-                // The action you want this intent to do;
-                // ACTION_SEND is used to indicate sending text
                 Intent email = new Intent(Intent.ACTION_SEND);
-                // Put essentials like email address, subject & body text
-                email.putExtra(Intent.EXTRA_EMAIL,
-                        new String[]{"jason_lim@rp.edu.sg"});
-                email.putExtra(Intent.EXTRA_SUBJECT,
-                        "Test Email from C347");
-                email.putExtra(Intent.EXTRA_TEXT,
-                        editTextMessage.getText());
-                // This MIME type indicates email
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"jason_lim@rp.edu.sg"});
+                email.putExtra(Intent.EXTRA_SUBJECT, "Test Email from C347");
+                email.putExtra(Intent.EXTRA_TEXT,editTextMessage.getText());
                 email.setType("message/rfc822");
-                // createChooser shows user a list of app that can handle
-                // this MIME type, which is, email
-                startActivity(Intent.createChooser(email,
-                        "Choose an Email client :"));
+                startActivity(Intent.createChooser(email, "Choose an Email client :"));
 
             }});
     }
